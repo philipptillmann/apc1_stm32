@@ -1,0 +1,7 @@
+#ifndef APC1_STM32_DEFINES_H_
+#define APC1_STM32_DEFINES_H_
+
+#define APC1_CMD_READ_MEASUREMENT  0x04
+#define APC1_FRAME_LENGTH          64
+
+#endif

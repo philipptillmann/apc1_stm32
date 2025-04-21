@@ -32,6 +32,9 @@ apc1-stm32-driver/
 ├── utils/
 │   └── apc1_crc.c (to be commited)
 │   └── apc1_crc.h (to be commited)
+├── examples/
+|   └── stm32_UART/
+|       └── main.c   
 └── test/
     └── test_apc1.c (to be commited)
 ```
@@ -46,9 +49,14 @@ apc1-stm32-driver/
 apc1_stm32_t apc1;
 apc1_stm32_init_uart(&apc1, &huart1);
 
-float co2, temperature, humidity;
-if (apc1_stm32_read(&apc1, &co2, &temperature, &humidity) == HAL_OK) {
-    // Use the sensor data
+// Read the response
+if (apc1_uart_read(&apc1, response) == HAL_OK) {
+    // Get specific values from the response
+    uint16_t pm10 = apc1_get_pm10(response);
+    uint16_t eco2 = apc1_get_eco2(response);
+    uint16_t tvoc = apc1_get_tvoc(response);
+    float temp = apc1_get_comp_temperature(response);
+    float hum = apc1_get_comp_humidity(response);
 }
 ```
 
@@ -70,8 +78,6 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ## Future Plans
 
 - [ ] Add I2C support
-- [ ] Add CRC check utilities
-- [ ] Add platform abstraction to separate STM32 HAL from core logic
 
 ---
 

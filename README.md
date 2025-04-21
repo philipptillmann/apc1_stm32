@@ -85,3 +85,6 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 Inspired by the official ScioSense APC1 Arduino library design (https://github.com/sciosense/apc1-arduino) and adapted for embedded STM32 environments.
 
+---
+
+**Keywords:** STM32, HAL, Sciosense APC1, UART, I2C, Air Quality, Embedded C.
